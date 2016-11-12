@@ -1,5 +1,6 @@
 package com.example.weaver.viewpagerpractise;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -14,8 +15,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //setting view pager
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(new NumberPagerAdapter(getSupportFragmentManager()));
+
+        //setting tab below
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.view_pager_tab);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setBackgroundResource(R.color.tab_bg);
     }
 
     private  class NumberPagerAdapter extends FragmentPagerAdapter {
@@ -31,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             return 5;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return "Page " + position;
         }
     }
 }
