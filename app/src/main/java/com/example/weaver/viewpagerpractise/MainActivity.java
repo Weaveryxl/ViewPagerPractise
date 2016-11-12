@@ -24,18 +24,20 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.view_pager_tab);
         tabLayout.setupWithViewPager(viewPager);
-        //why do we cancel this line? and why do we keep it in this version
-        tabLayout.setBackgroundResource(R.color.tab_bg);
+        //why do we cancel this line? and why do we keep it in this version?
+        //Ok this line will make the appbar in different color with pager
+        //tabLayout.setBackgroundResource(R.color.tab_bg);
 
         //This is to remove the shadow
         //But now we don't need it anymore? why？
-        //getSupportActionBar().setElevation(0);
+
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_favorite_white_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_people_white_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_phone_white_24dp);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_mail_white_24dp);
         tabLayout.getTabAt(4).setIcon(R.drawable.ic_settings_white_24dp);
+        getSupportActionBar().setElevation(0);
     }
 
     private  class NumberPagerAdapter extends FragmentPagerAdapter {
