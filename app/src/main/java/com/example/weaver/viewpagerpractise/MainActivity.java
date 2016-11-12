@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.view_pager_tab);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setBackgroundResource(R.color.tab_bg);
+        //why do we cancel this line?
+        //tabLayout.setBackgroundResource(R.color.tab_bg);
+
+        //This is to remove the shadow
+        getSupportActionBar().setElevation(0);
     }
 
     private  class NumberPagerAdapter extends FragmentPagerAdapter {
